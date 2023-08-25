@@ -7,12 +7,12 @@ export const routes = [
     },
     {
         path: '/mnist',
-        cName: '手写数字识别',
+        cName: 'a',
         component: () => import('../views/testPage.vue'),
     },
     {
         path: '/cifar10',
-        cName: '图像10分类',
+        cName: 'b',
         component: () => import('../views/testPage.vue'),
     }
 ]
