@@ -21,8 +21,8 @@
             </el-table>
         </div>
         <div class="bottom">
-            <el-button @click="clear">清除</el-button>
-            <el-button @click="predict">识别</el-button>
+            <el-button @click="clear">清 除</el-button>
+            <el-button @click="predict">识 别</el-button>
         </div>
     </div>
 </template>
