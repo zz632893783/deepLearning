@@ -37,6 +37,7 @@ const transformRef = ref();
 const predictValue = ref('');
 const predictionsArray = ref([]);
 const mouseState = { keydown: false, path: [] };
+let model = null
 onMounted(() => {
     ctx = canvasRef.value.getContext('2d');
     transformCtx = transformRef.value.getContext('2d');
@@ -93,7 +94,9 @@ const predict = async () => {
         }
         temp.push([tempArray[i]]);
     }
-    const model = await tf.loadLayersModel(new URL('/models/mnist/model.json', import.meta.url).href)
+    if (!model) {
+        model = await tf.loadLayersModel(new URL('/models/mnist/model.json', import.meta.url).href)
+    }
     // // 构建输入数据，这里假设你的模型接受一个形状为 [batch_size, input_size] 的输入
     const predictions = model.predict(tf.tensor4d(
         [
