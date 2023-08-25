@@ -1,5 +1,5 @@
 <template>
-    <div class="page">
+    <div class="page" v-loading="isLoading">
         <div class="fileupload">
             <input type="file" @change="selectImage" />
             <i class="plus" v-if="!imageUrl"></i>
@@ -61,7 +61,7 @@ const selectImage = async e => {
     if (!model) {
         model = await tf.loadLayersModel(new URL('/models/cifar10/model.json', import.meta.url).href)
     }
-    // // 构建输入数据，这里假设你的模型接受一个形状为 [batch_size, input_size] 的输入
+    // 构建输入数据，这里假设你的模型接受一个形状为 [batch_size, input_size] 的输入
     const predictions = model.predict(tf.tensor4d( pixels, [1, 32, 32, 3] ));
     predictArray.value = predictions.arraySync()[0].map((n, i) => {
         return ({
@@ -69,15 +69,7 @@ const selectImage = async e => {
             category: categorys[i]
         })
     });
-    isLoading.value = false;
-    // const formData = new FormData()
-    // formData.append('image', selectedImage);
-    // const response = await fetch('http://10.10.4.53:9999/api/post/cifar10', {
-    //     method: 'POST',
-    //     body: formData
-    // })
-    // const result = await response.text()
-    // predict.value = JSON.parse(result).data
+    isLoading.value = false
 }
 onMounted(() => {
     ctx = canvasRef.value.getContext('2d')
