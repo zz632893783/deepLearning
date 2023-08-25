@@ -10,6 +10,11 @@ export const routes = [
         // name: 'templateSyntax',
         cName: '手写数字识别',
         component: () => import('../views/testPage.vue'),
+    },
+    {
+        path: '/cifar10',
+        cName: '图像10分类',
+        component: () => import('@/views/testPage.vue'),
     }
 ]
 
