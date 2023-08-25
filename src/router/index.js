@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 export const routes = [
     {
         path: '',
-        redirect: '/mnist'
+        redirect: '/cifar10'
     },
     {
         path: '/cifar10',
