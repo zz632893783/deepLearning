@@ -1,19 +1,23 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 export const routes = [
     {
         path: '',
-        redirect: '/dinosaur'
+        redirect: '/mnist'
     },
     {
-        path: '/dinosaur',
-        // name: 'templateSyntax',
-        cName: '小恐龙',
-        component: () => import('../views/dinosaur/index.vue'),
+        path: '/mnist',
+        cName: '手写数字识别',
+        component: () => import('@/views/testPage.vue'),
+    },
+    {
+        path: '/cifar10',
+        cName: '图像10分类',
+        component: () => import('@/views/testPage.vue'),
     }
 ]
 
 export const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes
 })
