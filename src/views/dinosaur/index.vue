@@ -440,5 +440,6 @@ canvas {
     border: 1px solid;
     background-color: white;
     transition: filter 0.5s;
+    box-shadow: 0 0 4px red;
 }
 </style>
