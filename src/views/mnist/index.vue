@@ -93,7 +93,7 @@ const predict = async () => {
         }
         temp.push([tempArray[i]]);
     }
-    const model = await tf.loadLayersModel(new URL('./mnist/model.json', import.meta.url).href)
+    const model = await tf.loadLayersModel(new URL('/models/mnist/model.json', import.meta.url).href)
     // // 构建输入数据，这里假设你的模型接受一个形状为 [batch_size, input_size] 的输入
     const predictions = model.predict(tf.tensor4d(
         [
