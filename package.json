@@ -12,6 +12,7 @@
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@tensorflow/tfjs": "^4.10.0",
     "@vitejs/plugin-vue": "^4.1.0",
     "element-plus": "^2.3.3",
     "sass": "^1.62.0",
