@@ -12,7 +12,7 @@
 </template>
 <script setup>
 import { onMounted, ref, computed } from 'vue'
-import { routes } from '@/router/index.js'
+import { routes } from './router/index.js'
 import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
