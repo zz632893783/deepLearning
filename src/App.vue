@@ -3,6 +3,7 @@
         <el-aside width="200px">
             <el-menu size="small" :default-active="defaultActive">
                 <el-menu-item v-for="(routerItem) in routes.filter(n => !!n.path)" :index="routerItem.path" :key="routerItem.path" @click="changeRouter(routerItem)">{{ routerItem.cName }}</el-menu-item>
+                <!-- <el-menu-item v-for="(routerItem) in routes" :index="routerItem.path" :key="routerItem.path" @click="changeRouter(routerItem)">{{ routerItem.cName }}</el-menu-item> -->
             </el-menu>
         </el-aside>
         <el-main>
@@ -18,11 +19,12 @@ import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
 const router = useRouter()
 
+// const defaultActive = computed(() => route.path);
 const defaultActive = computed(() => route.path);
 
 const changeRouter = item => route.path !== item.path && router.push({ path: item.path })
 onMounted(() => {
-    console.log(route.path)
+    // console.log(route.path)
 })
 </script>
 <style lang="scss" scoped>
