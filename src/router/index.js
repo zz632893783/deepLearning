@@ -3,17 +3,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 export const routes = [
     {
         path: '',
-        redirect: '/mnist'
+        redirect: '/dinosaur'
     },
     {
-        path: '/mnist',
-        cName: 'a',
-        component: () => import('../views/testPage.vue'),
-    },
-    {
-        path: '/cifar10',
-        cName: 'b',
-        component: () => import('../views/testPage.vue'),
+        path: '/dinosaur',
+        // name: 'templateSyntax',
+        cName: '小恐龙',
+        component: () => import('../views/dinosaur/index.vue'),
     }
 ]
 
