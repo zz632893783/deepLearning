@@ -1,5 +1,5 @@
 <template>
-    <div class="page">
+    <div class="page" v-loading="isLoading">
         <div class="left">
             <div class="row">
                 <label>手写区域：</label>
@@ -37,7 +37,8 @@ const transformRef = ref();
 const predictValue = ref('');
 const predictionsArray = ref([]);
 const mouseState = { keydown: false, path: [] };
-let model = null
+let model = null;
+const isLoading = ref(false);
 onMounted(() => {
     ctx = canvasRef.value.getContext('2d');
     transformCtx = transformRef.value.getContext('2d');
@@ -94,6 +95,7 @@ const predict = async () => {
         }
         temp.push([tempArray[i]]);
     }
+    isLoading.value = true;
     if (!model) {
         model = await tf.loadLayersModel(new URL('/models/mnist/model.json', import.meta.url).href)
     }
@@ -108,6 +110,7 @@ const predict = async () => {
         return ({ probability: n * 100, num: i })
     });
     predictionsArray.value.sort((x, y) => y.probability - x.probability);
+    isLoading.value = false;
 };
 </script>
 <style lang="scss" scoped>
