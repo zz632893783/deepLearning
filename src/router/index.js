@@ -14,7 +14,7 @@ export const routes = [
     {
         path: '/cifar10',
         cName: '图像10分类',
-        component: () => import('@/views/testPage.vue'),
+        component: () => import('../views/testPage.vue'),
     }
 ]
 
