@@ -29,7 +29,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
-import * as tf from '@tensorflow/tfjs'
+// import * as tf from '@tensorflow/tfjs'
 let ctx;
 let transformCtx;
 const canvasRef = ref();
@@ -93,18 +93,18 @@ const predict = async () => {
         }
         temp.push([tempArray[i]]);
     }
-    const model = await tf.loadLayersModel(new URL('./mnist/model.json', import.meta.url).href)
-    // // 构建输入数据，这里假设你的模型接受一个形状为 [batch_size, input_size] 的输入
-    const predictions = model.predict(tf.tensor4d(
-        [
-            pixelArray
-        ]
-    ));
-    // 将预测结果转换为 JavaScript 数组
-    predictionsArray.value = predictions.arraySync()[0].map((n, i) => {
-        return ({ probability: n * 100, num: i })
-    });
-    predictionsArray.value.sort((x, y) => y.probability - x.probability);
+    // const model = await tf.loadLayersModel(new URL('./mnist/model.json', import.meta.url).href)
+    // // // 构建输入数据，这里假设你的模型接受一个形状为 [batch_size, input_size] 的输入
+    // const predictions = model.predict(tf.tensor4d(
+    //     [
+    //         pixelArray
+    //     ]
+    // ));
+    // // 将预测结果转换为 JavaScript 数组
+    // predictionsArray.value = predictions.arraySync()[0].map((n, i) => {
+    //     return ({ probability: n * 100, num: i })
+    // });
+    // predictionsArray.value.sort((x, y) => y.probability - x.probability);
 };
 </script>
 <style lang="scss" scoped>
