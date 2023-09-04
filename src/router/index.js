@@ -14,6 +14,11 @@ export const routes = [
         path: '/mnist',
         cName: '手写数字识别',
         component: () => import('../views/mnist/index.vue')
+    },
+    {
+        path: '/mobileNet',
+        cName: '迁移学习',
+        component: () => import('../views/mobileNet/index.vue')
     }
 ]
 
